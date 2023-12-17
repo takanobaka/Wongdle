@@ -8,8 +8,9 @@ def main():
     print("Hello World")
     word_set = load_word_set("data/wordle_words.txt")
     secret = random.choice(list(word_set))
-    wongdle = Wongdle(secret)
+    # wongdle = Wongdle(secret)
 
+    wongdle = Wongdle("APPLE")
     while wongdle.can_attempt:
         x = input("\nType your guess: ").upper()
         if len(x)!=wongdle.WORD_LENGTH:
