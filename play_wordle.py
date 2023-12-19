@@ -1,5 +1,5 @@
 from typing import List
-from wongdle import Wongdle
+from wordle import Wongdle
 from colorama import Fore
 from letter_state import LetterState
 import random
