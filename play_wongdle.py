@@ -7,7 +7,7 @@ import random
 def main():
     print("Hello World")
     word_set = load_word_set("data/wordle_words.txt")
-    secret = random.choice(list(word_set))
+    # secret = random.choice(list(word_set))
     # wordle = Wordle(secret)
     # wongdle = Wongdle("APPLE") #test case where APPLE is the word but HELLO is guessed 
     wongdle = Wongdle(list(word_set))
@@ -22,12 +22,13 @@ def main():
             print(Fore.RED+f"Please input valid word: "+Fore.RESET) 
             continue
         wongdle.attempt(x)
+        wongdle.greedy_word_picker(word)
         display_results(wongdle)
 
     if wongdle.is_solved:
         print("You got it!")
     else:
-        print(f"Word was: {secret}")
+        print(f"Word was: {wongdle.secret}")
         print("u dum.")
 
 
@@ -36,8 +37,9 @@ def main():
 def display_results(wongdle:Wongdle):
     print("\n")
     print(f"You have {wongdle.remaining_attempts} attempts remaining.")
+    # print(f"Computer has {len(wongdle.word_list)} words left to cheat with.")
     for word in wongdle.attempts:
-        wongdle.greedy_word_picker(word)
+        # print(f"Secret word has been set to: {wongdle.secret} ")
         result = wongdle.guess(word)
         colored_result_str = convert_result_to_color(result)
         print(colored_result_str)
@@ -58,11 +60,6 @@ def convert_result_to_color(result: List[LetterState]):
         result_with_color.append(colored_letter)
     
     return " ".join(result_with_color)
-
-def draw_border_around(lines: List[str], size: int = 9, pad: int = 1):
-    top_border = ""
-    pass
-
 
 def load_word_set(file_path:str):
     word_set = set()

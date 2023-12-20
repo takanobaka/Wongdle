@@ -18,16 +18,16 @@ class Wongdle:
     def greedy_word_picker(self, word:str):
         dic_possibility = {}
         for i in self.word_list:
-            if self.pattern_generator(i,word) not in dic_possibility:
-                dic_possibility[self.pattern_generator(i,word)] = [i]
+            self.secret = i
+            pattern = self.pattern_generator(i,word)
+            if pattern not in dic_possibility:
+                dic_possibility[pattern] = [i]
             else:
-                dic_possibility[self.pattern_generator(i,word)].append(i)
+                dic_possibility[pattern].append(i)
         
-        self.word_list = sorted(dic_possibility.items(), key=lambda item: len(item[1]))[0][1]
-        # print(self.word_list)
+        toppattern = sorted(dic_possibility.items(), key=lambda x:len(x[1]), reverse=True)[0][0]
+        self.word_list = dic_possibility[toppattern]
         self.secret = self.word_list[0]
-        print("Secret word is set to: " + self.secret)
-        print(len(self.word_list))
         pass
         
 
@@ -53,7 +53,7 @@ class Wongdle:
         for i in result: # adding logic for case where L can be guessed again 
             if str(i.character) in dic_char and dic_char[str(i.character)]<1:
                 i.is_in_word = False
-        pattern = "" # can definitely code the above repetitive code in a better way 
+        pattern = "" 
         for i in result:
             if i.is_in_word:
                 pattern+="2"
