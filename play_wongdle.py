@@ -8,10 +8,8 @@ def main():
     print("Hello World")
     word_set = load_word_set("data/wordle_words.txt")
     # secret = random.choice(list(word_set))
-    # wordle = Wordle(secret)
     # wongdle = Wongdle("APPLE") #test case where APPLE is the word but HELLO is guessed 
     wongdle = Wongdle(list(word_set))
-
 
     while wongdle.can_attempt:
         x = input("\nType your guess: ").upper()
@@ -30,8 +28,6 @@ def main():
     else:
         print(f"Word was: {wongdle.secret}")
         print("u dum.")
-
-
 
 
 def display_results(wongdle:Wongdle):
