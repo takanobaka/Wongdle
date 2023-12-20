@@ -22,7 +22,7 @@ def main():
             print(Fore.RED+f"Please input valid word: "+Fore.RESET) 
             continue
         wongdle.attempt(x)
-        wongdle.greedy_word_picker(word)
+        wongdle.greedy_word_picker(x)
         display_results(wongdle)
 
     if wongdle.is_solved:

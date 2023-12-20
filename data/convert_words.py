@@ -1,6 +1,8 @@
 def main():
-    input_file_path = "data/word_source.txt"
-    output_file_path = "data/wordle_words.txt"
+    # input_file_path = "data/word_source.txt"
+    # output_file_path = "data/wordle_words.txt"
+    input_file_path = "data/all_english_words.txt"
+    output_file_path = "data/english_fiveletter_words.txt"
     five_letter_words = []
     with open(input_file_path, "r") as f:
         for line in f.readlines():
