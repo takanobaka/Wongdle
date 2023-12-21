@@ -5,7 +5,7 @@ from letter_state import LetterState
 import random
 
 def main():
-    print("Hello World")
+    print("Welcome to Wongdle, the most cheat-free wordle out there!")
     word_set = load_word_set("data/wordle_words.txt")
     # secret = random.choice(list(word_set))
     # wongdle = Wongdle("APPLE") #test case where APPLE is the word but HELLO is guessed 
@@ -33,9 +33,9 @@ def main():
 def display_results(wongdle:Wongdle):
     print("\n")
     print(f"You have {wongdle.remaining_attempts} attempts remaining.")
-    # print(f"Computer has {len(wongdle.word_list)} words left to cheat with.")
+    print(f"Computer has {len(wongdle.word_list)} words left to cheat with.")
     for word in wongdle.attempts:
-        # print(f"Secret word has been set to: {wongdle.secret} ")
+        print(f"Secret word has been set to: {wongdle.secret} ")
         result = wongdle.guess(word)
         colored_result_str = convert_result_to_color(result)
         print(colored_result_str)

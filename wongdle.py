@@ -13,9 +13,13 @@ class Wongdle:
         pass
 
     def attempt(self,word:str):
+        #adds the guessed word into attempts for log
         self.attempts.append(word)
 
+
     def greedy_word_picker(self, word:str):
+        #based on user inputted word, the algorithm will select the secret word that 
+        #ensures the largest pool of words of similar pattern so it is harder to guess.
         dic_possibility = {}
         for i in self.word_list:
             self.secret = i
