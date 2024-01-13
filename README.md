@@ -1,6 +1,6 @@
 # Wongdle: the greedy wordle
 
-Wongdle is just wordle where the computer tries to cheat its human opponent.
+Wongdle is a version of wordle where the computer tries to cheat its human opponent by delaying as much as possible.
 
 
 
@@ -8,5 +8,5 @@ Wongdle is just wordle where the computer tries to cheat its human opponent.
 
 Initial wordle code was taken from pixiegamie's tutorial on how to code wordle in python: https://github.com/pixegami/python-wordle
 
-I used the code as my base, from where I built the code for my wongdle implementation.
+Using that code as my base, I built my own implementation of the greedy wordle.
 

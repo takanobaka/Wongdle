@@ -24,18 +24,18 @@ def main():
         display_results(wongdle)
 
     if wongdle.is_solved:
-        print("You got it!")
+        print("You... beat... the computer!?!? ... respect.")
     else:
         print(f"Word was: {wongdle.secret}")
-        print("u dum.")
+        print("Sorry, you just lost fair and square!")
 
 
 def display_results(wongdle:Wongdle):
     print("\n")
     print(f"You have {wongdle.remaining_attempts} attempts remaining.")
     print(f"Computer has {len(wongdle.word_list)} words left to cheat with.")
+    print(f"Secret word has been set to: {wongdle.secret} ")
     for word in wongdle.attempts:
-        print(f"Secret word has been set to: {wongdle.secret} ")
         result = wongdle.guess(word)
         colored_result_str = convert_result_to_color(result)
         print(colored_result_str)
