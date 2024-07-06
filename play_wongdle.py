@@ -7,8 +7,7 @@ import random
 def main():
     print("Welcome to Wongdle, the most cheat-free wordle out there!")
     word_set = load_word_set("data/wordle_words.txt")
-    # secret = random.choice(list(word_set))
-    # wongdle = Wongdle("APPLE") #test case where APPLE is the word but HELLO is guessed 
+
     wongdle = Wongdle(list(word_set))
 
     while wongdle.can_attempt:
