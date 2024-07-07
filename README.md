@@ -1,3 +1,5 @@
+<a id="readme-top"></a>
+
 # Wongdle: the Greedy Wordle
 
 Wongdle is a version of wordle where the computer tries to cheat its human opponent by delaying the win as much as possible, till the user runs out of attempts.
