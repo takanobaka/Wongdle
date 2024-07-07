@@ -29,13 +29,12 @@ class Wongdle:
         for potential_secret_word in self.word_list:
             pattern = self.pattern_generator(potential_secret_word, word)
             words_by_pattern_dic[pattern].append(potential_secret_word)
-       
          # replaced below logic to sort array with heap structure (see below) to reduce time complexity from O(n log(n)) to O(n)
             # toppattern = sorted(words_by_pattern_dic.items(), key=lambda x:len(x[1]), reverse=True)[0][0]
             # print(self.secret, word, toppattern)
             # self.word_list = words_by_pattern_dic[toppattern]
             # self.secret = self.word_list[0]
-        
+
         words_array = []
         for pattern, words in words_by_pattern_dic.items():
             words_array.append(tuple([-len(words),pattern]+words))

@@ -2,7 +2,6 @@ from typing import List
 from wongdle import Wongdle
 from colorama import Fore
 from letter_state import LetterState
-import random
 
 def main():
     print("Welcome to Wongdle, the most cheat-free wordle out there!")
