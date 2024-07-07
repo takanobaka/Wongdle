@@ -2,9 +2,8 @@ from letter_state import LetterState
 import collections, heapq
 
 class Wongdle:
-    # some code has been taken from https://github.com/pixegami/python-wordle as skeleton for project (just the basic wordle logic excluding the double guess bug)
 
-    MAX_ATTEMPT = 6
+    MAX_ATTEMPT = 6 # set how many attempts user can have to guess the right word
     WORD_LENGTH = 5
 
     def __init__(self, word_list: list, debug: bool):

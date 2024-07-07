@@ -33,12 +33,7 @@ def main():
 
 
 def display_results(wongdle:Wongdle, pattern: str):
-    print("\n")
-    print(f"You have {wongdle.remaining_attempts} attempts remaining.")
-    
-    if wongdle.debug:
-        print(f"Computer has {len(wongdle.word_list)} words left to cheat with.")
-        print(f"Secret word has been set to: {wongdle.secret} ")
+    # print(f"\nYou have {wongdle.remaining_attempts} attempts remaining.")
     
     # taking the latest user guess and the pattern decided by greedy to display hinted colour result
     latest_user_guess_letter_state = wongdle.patternToLetterState(wongdle.attempts[-1],pattern)
@@ -51,6 +46,10 @@ def display_results(wongdle:Wongdle, pattern: str):
     for _ in range(wongdle.remaining_attempts):
         print(" ".join(["_"]*wongdle.WORD_LENGTH))
 
+    if wongdle.debug:
+        print(f"\nComputer has {len(wongdle.word_list)} words left to cheat with.")
+        print(f"Secret word has been set to: {wongdle.secret} ")
+    
 
 def convert_result_to_color(result: List[LetterState]):
     result_with_color = []
