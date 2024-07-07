@@ -7,9 +7,11 @@ import random
 def main():
     print("Welcome to Wongdle, the most cheat-free wordle out there!")
     word_set = load_word_set("data/wordle_words.txt")
+    debug = True if input("\n View computer's thinking process? (Y/N) ").upper()=="Y" else False
 
-    wongdle = Wongdle(list(word_set))
+    wongdle = Wongdle(list(word_set),debug)
 
+    
     while wongdle.can_attempt:
         x = input("\nType your guess: ").upper()
         if len(x)!=wongdle.WORD_LENGTH:
@@ -32,10 +34,13 @@ def main():
 def display_results(wongdle:Wongdle):
     print("\n")
     print(f"You have {wongdle.remaining_attempts} attempts remaining.")
-    print(f"Computer has {len(wongdle.word_list)} words left to cheat with.")
-    print(f"Secret word has been set to: {wongdle.secret} ")
-    for word in wongdle.attempts:
-        result = wongdle.guess(word)
+    
+    if wongdle.debug:
+        print(f"Computer has {len(wongdle.word_list)} words left to cheat with.")
+        print(f"Secret word has been set to: {wongdle.secret} ")
+    
+    wongdle.addDisplayedGuess(wongdle.guess(wongdle.attempts[-1]))
+    for result in wongdle.displayed:
         colored_result_str = convert_result_to_color(result)
         print(colored_result_str)
     for _ in range(wongdle.remaining_attempts):
