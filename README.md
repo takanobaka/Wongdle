@@ -2,7 +2,22 @@
 
 Wongdle is a version of wordle where the computer tries to cheat its human opponent by delaying the win as much as possible, till the user runs out of attempts.
 
-As a daily wordle user, I wanted to know if I could make a wordle that was unbeatable, so decided to try and code it up.
+See if you can beat it!
+
+
+## Set Up:
+
+_Steps to set up the Wongdle in local._
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/takanobaka/Wongdle.git
+2. Run play_wongdle.py to start game.
+   ```sh
+    python play_wongdle.py
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -16,4 +31,4 @@ The algorithm works by taking the user's guess, and going through each possible 
 
 For example:
 ![alt text](Screenshots/image.png)
-![alt text](Screenshots/image-1.png)
+![alt text](Screenshots/image-1.png)<p align="right">(<a href="#readme-top">back to top</a>)</p>
