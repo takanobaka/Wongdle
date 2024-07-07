@@ -10,7 +10,6 @@ def main():
     debug = True if input("\n View computer's thinking process? (Y/N) ").upper()=="Y" else False
 
     wongdle = Wongdle(list(word_set),debug)
-
     
     while wongdle.can_attempt:
         x = input("\nType your guess: ").upper()
@@ -21,8 +20,8 @@ def main():
             print(Fore.RED+f"Please input valid word: "+Fore.RESET) 
             continue
         wongdle.attempt(x)
-        wongdle.greedy_word_picker(x)
-        display_results(wongdle)
+        pattern = wongdle.greedy_word_picker(x)
+        display_results(wongdle,pattern)
 
     if wongdle.is_solved:
         print("You... beat... the computer!?!? ... respect.")
@@ -31,7 +30,7 @@ def main():
         print("Sorry, you just lost fair and square!")
 
 
-def display_results(wongdle:Wongdle):
+def display_results(wongdle:Wongdle, pattern: str):
     print("\n")
     print(f"You have {wongdle.remaining_attempts} attempts remaining.")
     
@@ -39,10 +38,14 @@ def display_results(wongdle:Wongdle):
         print(f"Computer has {len(wongdle.word_list)} words left to cheat with.")
         print(f"Secret word has been set to: {wongdle.secret} ")
     
-    wongdle.addDisplayedGuess(wongdle.guess(wongdle.attempts[-1]))
-    for result in wongdle.displayed:
-        colored_result_str = convert_result_to_color(result)
-        print(colored_result_str)
+    #taking the latest user guess and the pattern decided by greedy to add coloured hint result
+    latest_user_guess_letter_state = wongdle.patternToLetterState(wongdle.attempts[-1],pattern)
+    colouredGuess = convert_result_to_color(latest_user_guess_letter_state)
+    wongdle.addColouredGuess(colouredGuess)
+
+    for result in wongdle.coloured_guesses:
+        print(result)
+        
     for _ in range(wongdle.remaining_attempts):
         print(" ".join(["_"]*wongdle.WORD_LENGTH))
 
