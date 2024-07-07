@@ -16,11 +16,11 @@ class Wongdle:
         pass
 
     def attempt(self,word:str):
-        #adds the guessed word into attempts for log
+        """add user attempted words for tracking"""
         self.attempts.append(word)
 
     def addColouredGuess(self, colouredGuess:str):
-        #adds the guessed word into attempts for log
+        """Adds display string with coloured hints for user guess"""
         self.coloured_guesses.append(colouredGuess)
 
     def greedy_word_picker(self, word:str):
@@ -44,12 +44,11 @@ class Wongdle:
         self.word_list = words_array[0][2:]
         self.secret = words_array[0][2]
         return words_array[0][1]
-
-       
+   
         
 
     def pattern_generator(self,potential_secret:str,word:str):
-        """Precalculates the potential pattern hints to return to user. 
+        """calculates the potential pattern hints to return to user. 
         Returns a pattern for the potential secret word against the user inputted word to be used for grouping"""
         result = []
         char_counter = collections.Counter(potential_secret)
@@ -70,9 +69,7 @@ class Wongdle:
                 # ^ adding logic for case where HELLO is inputted for secret word (APPLE), 
                 # APPLE
                 # HELLO
-                # PAPRE
                 # L in correct place should be green, L in wrong place should be grey.
-            
             if letter.is_in_position:
                 pattern+="1"
             elif letter.is_in_word:
@@ -82,6 +79,7 @@ class Wongdle:
         return pattern
 
     def patternToLetterState(self,word:str, pattern: str):
+        """converts a word and its characters into a LetterState array based on the pattern that is given"""
         result = []
         for i in range(self.WORD_LENGTH):
             character = word[i]
@@ -93,15 +91,14 @@ class Wongdle:
             result.append(letter)
         return result
 
-    @property
+    @property #property means you can use as attribute instead of a method (no need brackets)
     def is_solved(self):
         return len(self.attempts)>0 and self.attempts[-1]==self.secret
     
     @property
     def remaining_attempts(self) -> int:
         return self.MAX_ATTEMPT - len(self.attempts)
-        
-    #property means you can use as attribute instead of a method (no need brackets)
+    
     @property
     def can_attempt(self):
         return self.remaining_attempts > 0 and not self.is_solved
