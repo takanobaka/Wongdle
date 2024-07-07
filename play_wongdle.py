@@ -1,7 +1,7 @@
 from typing import List
-from wongdle import Wongdle
+from model.wongdle import Wongdle
 from colorama import Fore
-from letter_state import LetterState
+from model.letter_state import LetterState
 
 def main():
     print("Welcome to Wongdle, the most cheat-free wordle out there!")

@@ -1,4 +1,4 @@
-from letter_state import LetterState
+from model.letter_state import LetterState
 import collections, heapq
 
 class Wongdle:
