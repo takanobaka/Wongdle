@@ -15,6 +15,7 @@ If the letter is grey, it means the character is not present at all in the "secr
 The algorithm works by taking the user's guess, and going through each possible word that matches the hint pattern generated, and then grouping all those words together. The greedy part will select the pattern group with the largest list of words, and then use that pattern to decide on which secret word to pick. If the user guesses the secret word, the computer will change its secret word, as long as the changed word still has the same pattern as the guessed word hints. 
 
 For example:
+
 ![alt text](image.png)
 ![alt text](image-1.png)
 
